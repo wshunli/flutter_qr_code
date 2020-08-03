@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_qr_code/flutter_qr_code.dart';
+import 'package:flutter_qr_code/qr_scan_view.dart';
 
 void main() {
   runApp(MyApp());
@@ -50,7 +51,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: QrScanView(onCreated: null, x: null, y: null, width: null, height: null),
         ),
       ),
     );
