@@ -26,6 +26,9 @@ class QrScanView extends StatefulWidget {
 }
 
 class _QrScanViewState extends State<QrScanView> {
+  MethodChannel _channel =
+      const MethodChannel('com.wshunli.flutter/qr_code_scan');
+
   @override
   Widget build(BuildContext context) {
     return _buildNativeView();
@@ -49,9 +52,6 @@ class _QrScanViewState extends State<QrScanView> {
       );
     }
   }
-
-  static const MethodChannel _channel =
-      const MethodChannel('com.wshunli.flutter/qr_code_scan');
 
   // 扫码页面创建完成
   Future<void> _onQrScanViewCreated(id) async {

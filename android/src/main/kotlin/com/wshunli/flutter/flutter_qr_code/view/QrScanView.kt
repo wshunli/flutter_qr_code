@@ -44,8 +44,6 @@ class QrScanView(context: Context, messenger: BinaryMessenger, params: Map<Strin
     }
 
     override fun getView(): View {
-        mQrScanView?.startCamera()
-        mQrScanView?.startSpotAndShowRect()
         return mQrScanLayout
     }
 
