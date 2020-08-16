@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_qr_code/qr_scan_view.dart';
 import 'package:flutter_qr_code/qr_scan_controller.dart';
 import 'package:image_picker/image_picker.dart';
-import 'file:///D:/qrcode/flutter_qr_code/lib/qr_scan_view.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
