@@ -13,7 +13,7 @@ import 'package:flutter_qr_code/qr_scan_view.dart';
 import 'package:flutter_qr_code/qr_scan_controller.dart';
 ```
 
-Just like using a fluent widget:
+Just like using a Flutter widget:
 
 ```dart
 QrScanView(
@@ -36,7 +36,7 @@ QrScanView(
 
 ## Screenshot
 
-![](https://raw.githubusercontent.com/wshunli/flutter_qr_code/master/screenshot.jpg)
+![](./screenshot.png)
 
 More documentation coming soon.
 
