@@ -93,11 +93,11 @@ class QrScanView(context: Context, messenger: BinaryMessenger, params: Map<Strin
     }
 
     override fun onActivityStopped(activity: Activity?) {
-        mQrScanView?.stopCamera()
+        // mQrScanView?.stopCamera()
     }
 
     override fun onActivityDestroyed(activity: Activity?) {
-        mQrScanView?.onDestroy()
+        // mQrScanView?.onDestroy()
     }
 
     override fun onActivitySaveInstanceState(activity: Activity?, outState: Bundle?) {

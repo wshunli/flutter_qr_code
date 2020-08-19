@@ -22,7 +22,7 @@
         app:qrcv_tipBackgroundColor="@android:color/black"
         app:qrcv_tipTextSize="14sp"
         app:qrcv_toolbarHeight="?android:attr/actionBarSize"
-        app:qrcv_topOffset="125dp" />
+        app:qrcv_topOffset="100dp" />
 
 </FrameLayout>
 
