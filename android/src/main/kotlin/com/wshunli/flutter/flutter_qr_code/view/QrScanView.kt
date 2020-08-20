@@ -24,7 +24,7 @@ import io.flutter.plugin.platform.PlatformView
  * description ： 扫码控件
  */
 class QrScanView(context: Context, messenger: BinaryMessenger, params: Map<String, Any>)
-    : PlatformView, QRCodeView.Delegate, Application.ActivityLifecycleCallbacks {
+    : PlatformView, QRCodeView.Delegate {
 
     companion object {
         const val TAG = "QrScanView"
@@ -33,13 +33,11 @@ class QrScanView(context: Context, messenger: BinaryMessenger, params: Map<Strin
     }
 
     private val mQrScanLayout: ZXingLayout = ZXingLayout(context)
-    private val mQrScanView: ZXingView? = mQrScanLayout.findViewById(R.id.zxingview)
+    private var mQrScanView: ZXingView? = mQrScanLayout.findViewById(R.id.zxingview)
     private val mMethodHandler: MethodChannel = MethodChannel(messenger, METHOD_CHANNEL)
 
     init {
         mQrScanView?.setDelegate(this)
-        val application = context.applicationContext as Application
-        application.registerActivityLifecycleCallbacks(this)
         mMethodHandler.setMethodCallHandler(QrScanMethodHandler(messenger, mQrScanView))
     }
 
@@ -49,7 +47,9 @@ class QrScanView(context: Context, messenger: BinaryMessenger, params: Map<Strin
 
     override fun dispose() {
         mQrScanView?.stopSpot()
+        mQrScanView?.stopCamera()
         mQrScanView?.onDestroy()
+        mQrScanView = null;
     }
 
     /**
@@ -74,33 +74,5 @@ class QrScanView(context: Context, messenger: BinaryMessenger, params: Map<Strin
      */
     override fun onScanQRCodeOpenCameraError() {
         mMethodHandler.invokeMethod("onScanQRCodeOpenCameraError", null)
-    }
-
-    override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
-    }
-
-    override fun onActivityStarted(activity: Activity?) {
-        mQrScanView?.startCamera()
-    }
-
-    override fun onActivityResumed(activity: Activity?) {
-        mQrScanView?.startSpotAndShowRect()
-
-    }
-
-    override fun onActivityPaused(activity: Activity?) {
-
-    }
-
-    override fun onActivityStopped(activity: Activity?) {
-        // mQrScanView?.stopCamera()
-    }
-
-    override fun onActivityDestroyed(activity: Activity?) {
-        // mQrScanView?.onDestroy()
-    }
-
-    override fun onActivitySaveInstanceState(activity: Activity?, outState: Bundle?) {
-
     }
 }
