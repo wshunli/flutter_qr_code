@@ -1,6 +1,6 @@
 name: flutter_qr_code
 description: A new Flutter QrCode plugin.
-version: 0.0.2+1
+version: 0.0.2+2
 homepage: https://github.com/wshunli/flutter_qr_code
 
 environment:
